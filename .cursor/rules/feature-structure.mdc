@@ -1,0 +1,35 @@
+---
+description: Guidelines for managing state in Flutter features
+globs: 
+---
+
+# State Management Guidelines
+
+## Best Practices
+
+### State Handling
+- Use DataState<T> for all async operations [data_state.dart](mdc:lib/core/data_state.dart)
+- Prevent concurrent operations
+- Track operation status in state
+- Handle cleanup in close()
+
+### Error Handling
+- Use Result<Success, Failure> for operations
+- Proper error propagation
+- User-friendly error displays
+- Analytics tracking for errors
+
+## Implementation Requirements
+
+### State Structure
+- Must use freezed for immutability
+- Include DataState for async operations
+- Track loading/error/success states
+- Implement computed properties
+
+### Cubit Guidelines
+- Initialize state in constructor
+- Prevent concurrent operations
+- Implement proper cleanup
+- Track analytics events
+- Use dependency injection

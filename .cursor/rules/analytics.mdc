@@ -1,0 +1,84 @@
+---
+description: 
+globs: 
+---
+# Analytics Guidelines
+
+## Overview
+For related guidelines:
+- Error Handling: See `error-handling.mdc`
+- State Analytics: See `state-management.mdc`
+- Testing Analytics: See `testing.mdc`
+
+## Required Events
+
+### Lifecycle Events
+- Feature initialization
+- Feature disposal
+- Screen views
+- Modal/dialog displays
+
+### User Interaction Events
+- Button clicks
+- Form submissions
+- List item selections
+- Navigation actions
+- Search queries
+
+### Operation Events
+- Operation start
+- Operation success
+- Operation failure
+- Operation cancellation
+
+## Event Properties
+- Timestamp
+- User context
+- Feature context
+- Action context
+- Error details (if applicable)
+- Performance metrics
+
+## Implementation
+
+### Analytics Interface
+```dart
+abstract interface class IFeatureAnalytics {
+  void logInitialized();
+  void logActionStarted();
+  void logSuccess();
+  void logFailure(Object error);
+}
+```
+
+### Best Practices
+- Track all user interactions
+- Include relevant context
+- Log error details
+- Track performance metrics
+- Use consistent event naming
+- Group related events
+- Avoid sensitive data
+- Implement proper error handling
+
+## Error Tracking
+- Log all error states
+- Include error type
+- Include error message
+- Track stack traces
+- Log user actions leading to error
+- Track error recovery attempts
+
+## Performance Tracking
+- Track operation duration
+- Monitor resource usage
+- Track UI rendering time
+- Log network request times
+- Monitor memory usage
+
+## Data Privacy
+- No PII in analytics
+- No sensitive data
+- Follow GDPR guidelines
+- Implement data retention
+- Allow analytics opt-out 

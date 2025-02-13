@@ -1,0 +1,88 @@
+---
+description: 
+globs: 
+---
+# Error Handling Guidelines
+
+## Overview
+For related guidelines:
+- Error Analytics: See `analytics.mdc`
+- State Error Handling: See `state-management.mdc`
+- Error Testing: See `testing.mdc`
+
+## Error Types
+
+### Domain Errors
+```dart
+sealed class FeatureError {
+  const factory FeatureError.network() = FeatureNetworkError;
+  const factory FeatureError.validation() = FeatureValidationError;
+  const factory FeatureError.unknown(Object error) = FeatureUnknownError;
+}
+```
+
+### Result Type
+```dart
+Result<Success, Failure> performOperation() {
+  try {
+    // Operation logic
+    return Success(result);
+  } catch (e) {
+    return Failure(e);
+  }
+}
+```
+
+## Error Handling Layers
+
+### Domain Layer
+- Define error types
+- Create error hierarchies
+- Map domain-specific errors
+
+### Application Layer
+- Handle business logic errors
+- Map to appropriate state
+- Implement recovery logic
+
+### Infrastructure Layer
+- Handle network errors
+- Map external errors to domain
+- Implement retry logic
+- Cache error responses
+
+### Presentation Layer
+- Display user-friendly messages
+- Implement error UI states
+- Provide retry options
+- Show error details when appropriate
+
+## Best Practices
+- Use Result type for operations
+- Implement proper error propagation
+- Provide recovery mechanisms
+- Log detailed error context
+- Handle edge cases
+- Implement graceful degradation
+- Use meaningful error messages
+
+## Error Recovery
+- Implement retry mechanisms
+- Cache fallback data
+- Provide offline support
+- Clear error state on retry
+- Handle concurrent errors
+
+## Error Presentation
+- Show user-friendly messages
+- Provide action options
+- Display technical details in debug
+- Use appropriate UI components
+- Maintain consistent styling
+
+## Error Logging
+- Log stack traces
+- Include context information
+- Track error frequency
+- Monitor error patterns
+- Implement error reporting 
