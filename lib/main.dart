@@ -15,26 +15,8 @@ class WeatherApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const WeatherHomePage(),
-    );
-  }
-}
-
-class WeatherHomePage extends StatelessWidget {
-  const WeatherHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        title: const Text(
-          'Weather App',
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
-      body: const Center(
-        child: Text('Weather App Tutorial'),
+      home: const Scaffold(
+        body: Center(child: Text('Weather App')),
       ),
     );
   }
