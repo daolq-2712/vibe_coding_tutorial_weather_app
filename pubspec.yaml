@@ -13,6 +13,7 @@ dependencies:
   freezed_annotation: ^2.4.4
   freezed: ^2.5.7
   build_runner: ^2.4.13
+  result_type: ^1.0.0
 
 dev_dependencies:
   flutter_test:
