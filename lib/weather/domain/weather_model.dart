@@ -10,5 +10,6 @@ class WeatherModel with _$WeatherModel {
     @Default('') String weatherDescription,
     @Default(0) int humidity,
     @Default(0.0) double windSpeed,
+    @Default('°C') String temperatureUnit,
   }) = _WeatherModel;
 }
